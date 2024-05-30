@@ -1,20 +1,29 @@
-Formulae Caveats Shortcut for Homebrew Package Manager
+Formulae Caveats Subcommand for Homebrew
 ================
 
 ## What is it?
 
-It's an [external command][ec] for [Homebrew][h]. It provides installation caveat descriptions for Homebrew packages and casks.
+It's an [external command][external-commands] for [Homebrew] that provides caveat descriptions for Homebrew formulae and casks.
 
-[ec]: https://github.com/Homebrew/brew/blob/master/docs/External-Commands.md
-[h]: https://github.com/Homebrew/brew
+This repository is an active fork of the original [rafaelgarrido/homebrew-caveats](https://github.com/rafaelgarrido/homebrew-caveats), which is unmaintained.
+See [rafaelgarrido/homebrew-caveats#10][upstream-10] for the rational behind this fork.
+
+Most notably, this fork [greatly simplifies the installation process][upstream-9] for this subcommand.
+
+[upstream-9]: https://github.com/rafaelgarrido/homebrew-caveats/pull/9
+[upstream-10]: https://github.com/rafaelgarrido/homebrew-caveats/pull/10
+
+## Installation
+
+Run the following command:
+
+```bash
+brew tap superatomic/caveats
+```
 
 ## Usage
 
-Although the script's names is `brew-caveats.rb`, [Homebrew external
-commands][ec] work in such a way that you invoke them as `brew caveats`. (It
-functions exactly like a sub-command built into Homebrew.)
-
-If you already know the name of a package, and you want to see a bit about it, that's easy:
+To see the caveats for a formula:
 
     $ brew caveats zsh redis mysql
     ==> zsh: Caveats
@@ -55,21 +64,5 @@ This is also valid for casks:
     Cask anaconda installs files under /usr/local. The presence of such files can cause warnings when running "brew doctor", which is considered to be a bug in Homebrew Cask.
     
 
-## Installation
-
-You can install `brew caveats` in two ways.
-
-1. Tap this repository.
-1. Install manually.
-
-For the first method, run the following command:
-
-    brew tap rafaelgarrido/caveats
-
-For the second method, clone or download this repository. Then simply put the file `cmd/brew-caveats.rb` anywhere in your `$PATH`. For example:
-
-    mv cmd/*-caveats.rb ~/bin
-
-Leave the name as is if you follow this method. Homebrew knows how to find it.
-
-Once you've installed via either method, you can use the commands as described above.
+[external-commands]: https://github.com/Homebrew/brew/blob/master/docs/External-Commands.md
+[Homebrew]: https://brew.sh
