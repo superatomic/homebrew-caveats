@@ -74,5 +74,3 @@ module Homebrew
     end
   end
 end
-
-Homebrew.caveats
