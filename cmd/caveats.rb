@@ -56,17 +56,20 @@ module Homebrew
   end
 
   def puts_formula_caveats f
-    c = Caveats.new(f)
-    unless c.empty?
-      ohai "#{f.full_name}: Caveats", c.to_s
-      puts
+    oh1 f.full_name
+    unless (c = Caveats.new(f)).empty?
+      puts c.to_s
+    else
+      puts "No caveats exist for #{f.full_name}."
     end
   end
   
   def puts_cask_caveats cask
+    oh1 cask
     unless cask.caveats.empty?
-      ohai "#{cask}: Caveats", cask.caveats
-      puts
+      puts cask.caveats
+    else
+      puts "No caveats exist for #{cask}."
     end
   end
 end
