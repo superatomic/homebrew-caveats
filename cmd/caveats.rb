@@ -1,7 +1,4 @@
-#:  * `caveats`
-#:  Provides installation caveat descriptions from formulae
-#:
-#:  `brew caveats` <formula1> <formula2> <...>
+# frozen_string_literal: true
 
 require "caveats"
 require "cli/parser"
@@ -16,8 +13,7 @@ module Homebrew
   def caveats_args
     Homebrew::CLI::Parser.new do
       description <<~EOS
-        `caveats` <formulae1> <formulae2> <...>
-        Provides installation caveat descriptions from formulae and casks`.
+        Display installation caveats of a <formula> or <cask>.
       EOS
 
       switch "--formula", "--formulae",
@@ -25,9 +21,9 @@ module Homebrew
       switch "--cask", "--casks",
              description: "Treat all named arguments as casks."
       
-      conflicts "--formula", "--cask"
+      conflicts "formula", "cask"
 
-      named_args [:formula, :cask]
+      named_args [:formula, :cask], min: 1
     end
   end
 
