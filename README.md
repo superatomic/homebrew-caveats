@@ -5,11 +5,12 @@ Caveats Subcommand for Homebrew
 
 It's an [external command][external-commands] for [Homebrew] that provides caveat descriptions for Homebrew formulae and casks.
 
-This repository is an active fork of the original [rafaelgarrido/homebrew-caveats](https://github.com/rafaelgarrido/homebrew-caveats), which is unmaintained.
+This repository is an active fork of the original [rafaelgarrido/homebrew-caveats][upstream], which is unmaintained.
 See [rafaelgarrido/homebrew-caveats#10][upstream-10] for the rational behind this fork.
 
 Most notably, this fork [greatly simplifies the installation process][upstream-9] for this subcommand.
 
+[upstream]: https://github.com/rafaelgarrido/homebrew-caveats
 [upstream-9]: https://github.com/rafaelgarrido/homebrew-caveats/pull/9
 [upstream-10]: https://github.com/rafaelgarrido/homebrew-caveats/pull/10
 
@@ -25,28 +26,14 @@ brew tap superatomic/caveats
 
 To see caveats for a formula:
 
-    $ brew caveats redis mysql
+    $ brew caveats redis
     ==> redis
     To start redis now and restart at login:
       brew services start redis
     Or, if you don't want/need a background service you can just run:
       /usr/local/opt/redis/bin/redis-server /usr/local/etc/redis.conf
 
-    ==> mysql
-    We've installed your MySQL database without a root password. To secure it run:
-        mysql_secure_installation
-
-    MySQL is configured to only allow connections from localhost by default
-
-    To connect run:
-        mysql -u root
-
-    To start mysql now and restart at login:
-      brew services start mysql
-    Or, if you don't want/need a background service you can just run:
-      /usr/local/opt/mysql/bin/mysqld_safe --datadir\=/usr/local/var/mysql
-
-This is also valid for casks:
+This also works for casks:
 
     $ brew caveats macfuse
     ==> macfuse
